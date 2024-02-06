@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod_example/config/items/app_colors.dart';
+import 'package:flutter_riverpod_example/config/routes/app_router.dart';
+import 'package:flutter_riverpod_example/features/bottomNavbar/view/bottom_navbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,60 +13,122 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+      title: 'Flutter Movie App',
+      theme: ThemeData.light().copyWith(
+        primaryColor: AppColors.primary,
+        scaffoldBackgroundColor: AppColors.scaffoldBackground,
+        textTheme: const TextTheme(
+          displayMedium: TextStyle(
+            color: AppColors.whiteColor,
+            fontWeight: FontWeight.w600,
+            fontSize: 24,
+            wordSpacing: 1.5,
+            fontFamily: "Comfortaa",
+          ),
+          displaySmall: TextStyle(
+            color: AppColors.whiteColor,
+            fontWeight: FontWeight.w600,
+            fontSize: 20,
+            fontFamily: "Comfortaa",
+            wordSpacing: 1.5,
+          ),
+          displayLarge: TextStyle(
+            color: AppColors.whiteColor,
+            fontWeight: FontWeight.w600,
+            fontSize: 28,
+            wordSpacing: 1.5,
+            fontFamily: "Comfortaa",
+          ),
+          headlineMedium: TextStyle(
+            color: AppColors.whiteColor,
+            fontWeight: FontWeight.w700,
+            fontSize: 24,
+            wordSpacing: 1.5,
+            fontFamily: "Comfortaa",
+          ),
+          headlineSmall: TextStyle(
+            color: AppColors.whiteColor,
+            fontWeight: FontWeight.w700,
+            fontSize: 20,
+            wordSpacing: 1.5,
+            fontFamily: "Comfortaa",
+          ),
+          headlineLarge: TextStyle(
+            color: AppColors.whiteColor,
+            fontWeight: FontWeight.w700,
+            fontSize: 28,
+            wordSpacing: 1.5,
+            fontFamily: "Comfortaa",
+          ),
+          bodyMedium: TextStyle(
+            color: AppColors.whiteColor,
+            fontWeight: FontWeight.w500,
+            fontSize: 16,
+            wordSpacing: 1.5,
+            fontFamily: "Comfortaa",
+          ),
+          bodySmall: TextStyle(
+            color: AppColors.whiteColor,
+            fontWeight: FontWeight.w500,
+            fontSize: 14,
+            wordSpacing: 1.5,
+            fontFamily: "Comfortaa",
+          ),
+          bodyLarge: TextStyle(
+            color: AppColors.whiteColor,
+            fontWeight: FontWeight.w500,
+            fontSize: 18,
+            wordSpacing: 1.5,
+            fontFamily: "Comfortaa",
+          ),
+          titleLarge: TextStyle(
+            color: AppColors.whiteColor,
+            fontWeight: FontWeight.w500,
+            fontSize: 18,
+            wordSpacing: 1.5,
+            fontFamily: "Comfortaa",
+          ),
+          titleSmall: TextStyle(
+            color: AppColors.whiteColor,
+            fontWeight: FontWeight.w500,
+            fontSize: 14,
+            wordSpacing: 1.5,
+            fontFamily: "Comfortaa",
+          ),
+          titleMedium: TextStyle(
+            color: AppColors.whiteColor,
+            fontWeight: FontWeight.w500,
+            fontSize: 16,
+            wordSpacing: 1.5,
+            fontFamily: "Comfortaa",
+          ),
+          labelMedium: TextStyle(
+            color: AppColors.whiteColor,
+            fontWeight: FontWeight.w400,
+            fontSize: 16,
+            wordSpacing: 1.5,
+            fontFamily: "Comfortaa",
+          ),
+          labelSmall: TextStyle(
+            color: AppColors.whiteColor,
+            fontWeight: FontWeight.w400,
+            fontSize: 14,
+            wordSpacing: 1.5,
+            fontFamily: "Comfortaa",
+          ),
+          labelLarge: TextStyle(
+            color: AppColors.whiteColor,
+            fontWeight: FontWeight.w400,
+            fontSize: 18,
+            wordSpacing: 1.5,
+            fontFamily: "Comfortaa",
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      // initialRoute: AppRouteNames.bottomAppBar,
+      onGenerateRoute: AppRouter.onGenerateRoute,
+      home: const BottomNavbar(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
