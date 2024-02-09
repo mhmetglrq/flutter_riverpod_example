@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod_example/config/items/app_colors.dart';
 import 'package:flutter_riverpod_example/config/routes/app_router.dart';
 import 'package:flutter_riverpod_example/features/bottomNavbar/view/bottom_navbar.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
